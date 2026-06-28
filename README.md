@@ -123,15 +123,15 @@ bajar-list/
 
 | Screenshot 1 | Screenshot 2 |
 |--------------|--------------|
-| ![](screenshots/ss1.png) | ![](screenshots/ss2.png) |
+| ![](screenshots/ss1.jpg) | ![](screenshots/ss2.jpg) |
 
 | Screenshot 3 | Screenshot 4 |
 |--------------|--------------|
-| ![](screenshots/ss3.png) | ![](screenshots/ss4.png) |
+| ![](screenshots/ss3.jpg) | ![](screenshots/ss4.jpg) |
 
 | Screenshot 5 | Screenshot 6 |
 |--------------|--------------|
-| ![](screenshots/ss5.png) | ![](screenshots/ss6.png) |
+| ![](screenshots/ss5.jpg) | ![](screenshots/ss6.jpg) |
 
 Example:
 
