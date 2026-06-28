@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bajar List App</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F8F9FA" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#161619" media="(prefers-color-scheme: dark)" />
+    <style>
+      :root { background-color: #F8F9FA; }
+      :root.dark { background-color: #161619; }
+    </style>
+    <script>
+      (function() {
+        try {
+          var data = JSON.parse(localStorage.getItem('bazar_list_data') || '{}');
+          var theme = data.theme || 'system';
+          var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          if (typeof originalFetch === 'function') {
+            var desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+            if (desc && desc.configurable) {
+              Object.defineProperty(window, 'fetch', {
+                get: function() { return window.__fetchOverride || originalFetch; },
+                set: function(v) { window.__fetchOverride = v; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          }
+        } catch (e) {
+          console.warn('Could not patch window.fetch:', e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
